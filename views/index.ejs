@@ -1,0 +1,231 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $("#form1").submit(function(event) {
+                event.preventDefault();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/',
+                    data: $('#form1').serialize(),
+                    dataType: "json",
+                    success: function(response) {
+                        //alert("a");
+                        //console.log(response.Success);
+                        $('#form1')[0].reset();
+
+                        document.getElementById("check").innerHTML = response.Success;
+                        //ADD THIS CODE
+                        setTimeout(function() {
+                            document.getElementById("check").innerHTML = "";
+                        }, 3000);
+                        if (response.Success == "You are regestered,You can login now.") {
+                            document.getElementById("aa").click();
+                        };
+                    },
+                    error: function() {}
+                })
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="col-md-4 col-md-offset-4">
+        <div>
+            <p>Register Now
+            </p>
+        </div>
+        <div class="form-group">
+            <form id="form1" method="post">
+                <input type="text" name="firstName" placeholder="First Name" required="" class="form-control"><br/>
+                <input type="text" name="lastName" placeholder="Last Name" required="" class="form-control"><br/>
+                <input type="email" name="email" placeholder="E-mail" required="" class="form-control"><br/>
+                <input type="text" name="username" placeholder="Username" required="" class="form-control"><br/>
+                <input type="password" name="password" placeholder="Password" required="" class="form-control"><br/>
+                <input type="password" name="passwordConf" placeholder="Confirm Password" required="" class="form-control"><br/>
+                <input type="submit" value="Register" class="btn btn-success">
+            </form>
+        </div>
+
+        <div class="mssg bg-danger">
+            <span id="check"></span>
+        </div>
+        <div>
+            <span>Already Registered! <a href="/login">Login</a></span>
+        </div>
+        <div id="LangTable">
+            <a href="/login" id="aa"></a>
+        </div>
+    </div>
+</body>
+
+</html> -->
+
+
+<html>
+
+<head>
+    <title>Registration</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#form1").submit(function (event) {
+                event.preventDefault();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/',
+                    data: $('#form1').serialize(),
+                    dataType: "json",
+                    success: function (response) {
+                        //alert("a");
+                        //console.log(response.Success);
+                        $('#form1')[0].reset();
+
+                        document.getElementById("check").innerHTML = response.Success;
+                        //ADD THIS CODE
+                        setTimeout(function () {
+                            document.getElementById("check").innerHTML = "";
+                        }, 3000);
+                        if (response.Success == "You are regestered,You can login now.") {
+                            document.getElementById("aa").click();
+                        };
+                    },
+                    error: function () { }
+                })
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header class="text-gray-600 body-font">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <img src="img/Group 2.png" alt="" srcset="">
+        </div>
+    </header>
+
+    <section class="text-gray-600 body-font">
+
+        <div class="container mx-auto flex px-5  md:flex-row flex-col items-center">
+
+            <div class="w-full xl:w-3/4 lg:w-11/12 flex">
+
+                <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
+                    <h1 class="pt-4 text-4xl font-bold text-center text-blue-900">Welcome to Globiliti!</h1>
+                    <h1 class="pt-8 text-1xl font-bold text-center text-gray-400">Log in to your school account
+                    </h1>
+                    <form class="px-8 pt-10 pb-8 mb-4 bg-white rounded" id="form1" method="post">
+                        <div class="mb-4 ">
+                            <div class="mb-4 ">
+                                <label class="inline-block  mb-2 text-lg font-bold text-blue-900" for="firstName">
+                                    First Name
+                                </label>
+                                <input class="w-full px-3 py-2 border-b-2 border-gray-400 focus:border-green-400 
+                            text-gray-600 placeholder-gray-400
+                            outline-none" name="firstName" type="text" required="" placeholder="First Name" />
+                            </div>
+                            <div class="mb-4">
+                                <label class="block mb-2 text-lg font-bold text-blue-900" for="lastName">
+                                    Last Name
+                                </label>
+                                <input class="w-full px-3 py-2 border-b-2 border-gray-400 focus:border-green-400 
+                            text-gray-600 placeholder-gray-400
+                            outline-none" name="lastName" type="text" required="" placeholder="Last Name" />
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block mb-2 text-lg font-bold text-blue-900" for="email">
+                                Email
+                            </label>
+                            <input class="w-full px-3 py-2 border-b-2 border-gray-400 focus:border-green-400 
+                        text-gray-600 placeholder-gray-400
+                        outline-none" name="email" type="email" required="" placeholder="Email" />
+                        </div>
+                        <div class="mb-4 ">
+                            <label class="inline-block  mb-2 text-lg font-bold text-blue-900" for="firstName">
+                                Username
+                            </label>
+                            <input class="w-full px-3 py-2 border-b-2 border-gray-400 focus:border-green-400 
+						text-gray-600 placeholder-gray-400
+						outline-none" name="username" type="text" required="" placeholder="First Name" />
+                        </div>
+                        <div class="mb-4 md:">
+                            <div class="mb-4 md:mr-2 md:mb-0">
+                                <label class="block mb-2 text-lg font-bold text-blue-900" for="password">
+                                    Password
+                                </label>
+                                <input type="password" name="password" required="" name="password"
+                                    placeholder="password" class="w-full px-3 py-2 border-b-2 border-gray-400 focus:border-green-400 
+                                   text-gray-600 placeholder-gray-400
+                                   outline-none">
+                            </div>
+                        </div>
+                        <div class="mb-4 md:">
+                            <div class="mb-4 md:mr-2 md:mb-0">
+                                <label class="block mb-2 text-lg font-bold text-blue-900" for="password">
+                                    Change Passwors
+                                </label>
+                                <input type="password" name="passwordConf" required="" name="password"
+                                    placeholder="password" class="w-full px-3 py-2 border-b-2 border-gray-400 focus:border-green-400 
+                                   text-gray-600 placeholder-gray-400
+                                   outline-none">
+                            </div>
+                        </div>
+                        <div class="mb-6 text-center">
+                            <button type="submit" value="Register"
+                                class=" text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Login</button>
+
+                            <div class="mb-4 md:">
+                                <div class="mb-4 md:mr-2 md:mb-0">
+                                    <div class="mssg bg-danger">
+                                        <span id="check"></span>
+                                    </div>
+                                    <div id="LangTable ">
+                                        <a href="/login " id="aa "></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="mb-6 border-t " />
+
+                        <div class="text-center ">
+                            <a class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800 "
+                                href="/login ">
+                                Already have an account? Login!
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="imgs md:w-1/2 ">
+                <img class="object-cover object-center rounded " alt="hero " src="img/images.png ">
+            </div>
+    </section>
+
+</body>
+
+</html>
